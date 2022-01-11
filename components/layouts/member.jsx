@@ -6,6 +6,13 @@ import { useDispatch } from 'react-redux'
 import { config } from '../../config'
 import { Login } from '../auth/authSlice'
 
+import { Layout, Menu, Breadcrumb } from 'antd'
+import { menuList } from '../../menu'
+import Link from 'next/link'
+
+const { Header, Content, Footer, Sider } = Layout
+const { SubMenu } = Menu
+
 function MemberLayout(props) {
   const dispatch = useDispatch()
 
@@ -38,8 +45,62 @@ function MemberLayout(props) {
     }
     getUser()
   }, [])
+  const [collapsed, setCollapsed] = useState(false)
 
-  return <>{props.children}</>
+  const onCollapse = (collapsed) => {
+    setCollapsed(collapsed)
+  }
+
+  const MenuLsit = menuList.map((menu) => {
+    if (menu.SubMenu) {
+      return (
+        <SubMenu key={menu.key} icon={menu.icon} title={menu.name}>
+          {menu.SubMenu.map((sub) => {
+            return (
+              <Menu.Item key={sub.key} icon={sub.icon}>
+                <Link href={sub.path}>{sub.name}</Link>
+              </Menu.Item>
+            )
+          })}
+        </SubMenu>
+      )
+    }
+    if (!menu.SubMenu) {
+      return (
+        <Menu.Item key={menu.key} icon={menu.icon}>
+          <Link href={menu.path}>{menu.name}</Link>
+        </Menu.Item>
+      )
+    }
+  })
+
+  return (
+    <>
+      <Header
+        className="site-layout-background"
+        style={{ padding: 0, height: '80px' }}
+      />
+      <Layout style={{ minHeight: '100vh' }}>
+        <Sider
+          theme="light"
+          collapsible
+          collapsed={collapsed}
+          onCollapse={onCollapse}
+        >
+          <div className="logo" />
+          <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
+            {MenuLsit}
+          </Menu>
+        </Sider>
+        <Layout className="site-layout">
+          <Content style={{ padding: '40px' }}>{props.children}</Content>
+          <Footer style={{ textAlign: 'center' }}>
+            Ant Design ©2018 Created by Ant UED
+          </Footer>
+        </Layout>
+      </Layout>
+    </>
+  )
 }
 
 export default MemberLayout
