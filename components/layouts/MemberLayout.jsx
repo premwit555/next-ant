@@ -28,21 +28,15 @@ function MemberLayout(props) {
         })
         .then((res) => {
           const { username, role } = res.data.data
-          dispatch(
-            Login({
-              token,
-              role,
-              username,
-            })
-          )
-
-          return res.data.data
+          dispatch(Login({ token, role, username }))
+          return
         })
         .catch((e) => {
           console.log(e)
           Router.push('/auth/login')
         })
     }
+
     getUser()
   }, [])
   const [collapsed, setCollapsed] = useState(false)

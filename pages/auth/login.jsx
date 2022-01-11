@@ -1,16 +1,5 @@
-import React, { useState } from 'react'
-import {
-  Form,
-  Input,
-  Button,
-  Checkbox,
-  Row,
-  Col,
-  message,
-  Skeleton,
-  Spin,
-  Alert,
-} from 'antd'
+import React, { useEffect, useState } from 'react'
+import { Form, Input, Button, Row, Col, message, Spin } from 'antd'
 import axios from 'axios'
 import { config } from '../../config'
 import { useDispatch } from 'react-redux'
@@ -20,6 +9,30 @@ import Router from 'next/router'
 function login() {
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    const token = localStorage.backofficeToken
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    }
+    setLoading(true)
+    const user = axios
+      .get(`${config.backend}/auth/me`, {
+        headers,
+      })
+      .then((res) => {
+        const { username, role } = res.data.data
+
+        dispatch(Login({ token, role, username }))
+        Router.push('/')
+        setLoading(false)
+        return
+      })
+      .catch((e) => {
+        setLoading(false)
+        console.log(e)
+      })
+  }, [])
 
   const onFinish = async (data) => {
     setLoading(true)

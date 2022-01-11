@@ -1,10 +1,10 @@
 // pages/api/login.ts
 
 import axios from 'axios'
-import { withIronSessionApiRoute } from 'iron-session/next'
+import withSession from '../../../components/utils/session'
 import { config } from '../../../config'
 
-export default withIronSessionApiRoute(
+export default withSession(
   async function loginRoute(req, res) {
     // get user from database then:
 
