@@ -12,7 +12,7 @@ module.exports = withLess({
 
     lessOptions: {
       modifyVars: {
-        "primary-color": "#9900FF",
+        "primary-color": "#1890ff",
       },
     },
   },
