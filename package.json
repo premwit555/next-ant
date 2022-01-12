@@ -11,15 +11,13 @@
     "@reduxjs/toolkit": "^1.7.1",
     "antd": "^4.18.3",
     "axios": "^0.24.0",
-    "iron-session": "^6.0.5",
     "next": "12.0.7",
     "next-with-less": "^2.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
-    "react-redux": "^7.2.6",
-    "reqwest": "^2.0.5",
-    "swr": "^1.1.2"
+    "react-query": "^3.34.8",
+    "react-redux": "^7.2.6"
   },
   "devDependencies": {
     "eslint": "8.6.0",

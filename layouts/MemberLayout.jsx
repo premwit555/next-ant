@@ -1,14 +1,12 @@
 import axios from 'axios'
 import Router from 'next/router'
-
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { config } from '../../config'
-import { Login } from '../auth/authSlice'
-
-import { Layout, Menu, Breadcrumb } from 'antd'
-import { menuList } from '../../menu'
+import { Login } from '../functions/auth/authSlice'
+import { Layout, Menu } from 'antd'
+import { menuList } from '../menu'
 import Link from 'next/link'
+import { config } from '../config'
 
 const { Header, Content, Footer, Sider } = Layout
 const { SubMenu } = Menu

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Form, Input, Button, Row, Col, message, Spin } from 'antd'
 import axios from 'axios'
-import { config } from '../../config'
+
 import { useDispatch } from 'react-redux'
-import { Login } from '../../components/auth/authSlice'
+import { Login } from '../../functions/auth/authSlice'
 import Router from 'next/router'
+import { config } from '../../config'
 
 function login() {
   const [loading, setLoading] = useState(false)

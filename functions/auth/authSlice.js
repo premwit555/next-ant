@@ -1,22 +1,10 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
-import { config } from '../../config'
+import { createSlice } from '@reduxjs/toolkit'
+
 const initialState = {
   token: '',
   role: '',
   username: '',
-  status: null,
 }
-
-// export const getLogin = createAsyncThunk(
-//   'auth/login',
-//   async (dispatch, getState) => {
-//     return await axios
-//       .post(`${config.backend}/auth/login`,data)
-//       .then((res) => res.data)
-//       .catch((e) => console.log(e))
-//   }
-// )
 
 export const authSlice = createSlice({
   name: 'auth',

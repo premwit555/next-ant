@@ -1,5 +1,5 @@
 import React from 'react'
-import MemberLayout from '../components/layouts/MemberLayout'
+import MemberLayout from '../layouts/MemberLayout'
 
 function Index() {
   return (

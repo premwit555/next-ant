@@ -1,13 +1,9 @@
-import { AiFillCaretRight } from "react-icons/ai"
-import { SiCashapp } from "react-icons/si"
-import { GoFile } from "react-icons/go"
-import { IoNotificationsOutline } from "react-icons/io5"
-import { RiBankLine } from "react-icons/ri"
-import {
-     FcApproval,
-     FcHighPriority,
-     FcSimCardChip,
-} from "react-icons/fc"
+import { AiFillCaretRight } from 'react-icons/ai'
+import { SiCashapp } from 'react-icons/si'
+import { GoFile } from 'react-icons/go'
+import { IoNotificationsOutline } from 'react-icons/io5'
+import { RiBankLine } from 'react-icons/ri'
+import { FcApproval, FcHighPriority, FcSimCardChip } from 'react-icons/fc'
 
 export const menuList = [
   { key: 1, icon: <AiFillCaretRight />, name: 'หน้าหลัก', path: '/' },
@@ -17,13 +13,12 @@ export const menuList = [
       <IoNotificationsOutline
         style={{
           fontSize: '20px',
-           color: '#3ebfff',
-
+          color: '#3ebfff',
         }}
       />
     ),
     name: 'การแจ้งเตือน',
-    path: '/',
+    path: '/notification',
   },
   {
     key: 3,
@@ -54,7 +49,7 @@ export const menuList = [
         key: 41,
         icon: <FcApproval style={{ fontSize: '20px' }} />,
         name: '1.1 สมัคร',
-        path: '/member/register',
+        path: '/actions/register',
       },
       {
         key: 42,
@@ -67,7 +62,7 @@ export const menuList = [
           />
         ),
         name: '1.2 ฝาก',
-        path: '/member/deposit',
+        path: '/actions/deposit',
       },
       {
         key: 43,
@@ -80,19 +75,19 @@ export const menuList = [
           />
         ),
         name: '1.3 ถอน',
-        path: '/member/withdraw',
+        path: '/actions/withdraw',
       },
       {
         key: 44,
         icon: <FcSimCardChip style={{ fontSize: '20px' }} />,
         name: ' 1.4 โปรโมชั่น',
-        path: '/member/promotion',
+        path: '/actions/promotion',
       },
       {
         key: 45,
         icon: <FcHighPriority style={{ fontSize: '20px' }} />,
         name: ' 1.5 ปัญหา',
-        path: '/member/issue',
+        path: '/actions/issue',
       },
     ],
   },
