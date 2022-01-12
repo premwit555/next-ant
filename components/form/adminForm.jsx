@@ -1,18 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Form, Input, Button, Select, Switch } from 'antd'
-import { optionRole } from '../function/admin'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
 import { config } from '../../config'
 import useSWR from 'swr'
 function AdminForm() {
+  // UI
   const { Option } = Select
 
-  const getApi = () => axios.get().then((res) => res.data.result)
+  // API GET
+  const { token } = useSelector((state) => state.auth)
+  console.log(token)
+  const getApi = (key) => axios.get(key).then((res) => res.data.result)
   const { data } = useSWR(`${config.backend}/type/admin`, getApi)
+  // API POST
 
-  const onFinish = (values) => {
-    console.log('Success:', values)
+  // END
+  const onFinish = async (values) => {
+    console.log(values)
+    const configs = {
+      headers: { Authorization: `Bearer ${token}` },
+    }
+
+    await axios
+      .post(`${config.backend}/admin`, values, configs)
+      .then((res) => res.data)
+      .catch((e) => console.log(e))
   }
 
   return (
@@ -26,9 +39,16 @@ function AdminForm() {
         autoComplete="off"
       >
         <Form.Item
+          label="Nane"
+          name="name"
+          rules={[{ required: true, message: 'กรุณากรอก ชื่อเล่น' }]}
+        >
+          <Input placeholder="ชื่อเล่น" />
+        </Form.Item>
+        <Form.Item
           label="Username"
           name="username"
-          rules={[{ required: true, message: 'Please input your username!' }]}
+          rules={[{ required: true, message: 'กรุณากรอก  ' }]}
         >
           <Input placeholder="ยูสเซอร์เนม" />
         </Form.Item>
@@ -52,7 +72,7 @@ function AdminForm() {
           </Select>
         </Form.Item>
         <Form.Item label="status" name="isStatus">
-          <Switch defaultChecked />
+          <Switch />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>

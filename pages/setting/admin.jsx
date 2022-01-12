@@ -41,7 +41,9 @@ export default function Admin() {
       title: 'ชื่อ',
       dataIndex: 'name',
       defaultSortOrder: 'descend',
-      sorter: (a, b) => a.name.length - b.name.length,
+      sorter: (a, b) => {
+        a.name?.length - b.name?.length
+      },
     },
     {
       title: 'หน้าที่',
