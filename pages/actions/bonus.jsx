@@ -1,7 +1,7 @@
 import React from 'react'
-
+import MemberLayout from '../../layouts/MemberLayout'
 function bonus() {
-  return <div></div>
+  return <MemberLayout></MemberLayout>
 }
 
 export default bonus

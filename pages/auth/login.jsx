@@ -7,7 +7,7 @@ import { Login } from '../../functions/auth/authSlice'
 import Router from 'next/router'
 import { config } from '../../config'
 
-function login() {
+export function LoginPage() {
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
 
@@ -103,4 +103,4 @@ function login() {
   )
 }
 
-export default login
+export default LoginPage
