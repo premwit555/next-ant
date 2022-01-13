@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Form, Input, Button, Row, Col, message, Spin } from 'antd'
 import axios from 'axios'
-
 import { useDispatch } from 'react-redux'
 import { Login } from '../../functions/auth/authSlice'
 import Router from 'next/router'
@@ -17,6 +16,7 @@ export function LoginPage() {
       Authorization: `Bearer ${token}`,
     }
     setLoading(true)
+
     const user = axios
       .get(`${config.backend}/auth/me`, {
         headers,
@@ -40,8 +40,8 @@ export function LoginPage() {
     const res = await axios
       .post(`${config.backend}/auth/login`, data)
       .then((res) => {
-        setLoading(false)
         message.success('เข้าสู่ระบบสำเร็จ')
+        setLoading(false)
         return res.data
       })
       .catch((e) => {
