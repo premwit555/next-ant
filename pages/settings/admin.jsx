@@ -1,11 +1,8 @@
 import React from 'react'
+import MemberLayout from '../../layouts/MemberLayout'
 
 function Admin() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return <MemberLayout></MemberLayout>
 }
 
 export default Admin

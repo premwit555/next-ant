@@ -11,7 +11,7 @@ import { config } from '../config'
 const { Header, Content, Footer, Sider } = Layout
 const { SubMenu } = Menu
 
-function MemberLayout(props) {
+export function MemberLayout(props) {
   const dispatch = useDispatch()
 
   useEffect(() => {

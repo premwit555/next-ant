@@ -1,7 +1,8 @@
 import React from 'react'
+import MemberLayout from '../../layouts/MemberLayout'
 
 function Bank() {
-  return <div></div>
+  return <MemberLayout></MemberLayout>
 }
 
 export default Bank

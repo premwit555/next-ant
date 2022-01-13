@@ -1,11 +1,8 @@
 import React from 'react'
+import MemberLayout from '../../layouts/MemberLayout'
 
 function deposit() {
-    return (
-        <div>
-            
-        </div>
-    )
+    return <MemberLayout></MemberLayout>
 }
 
 export default deposit
